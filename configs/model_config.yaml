@@ -1,0 +1,47 @@
+# Data Configuration
+data:
+  raw_file: "data/raw/ecoli_protein_dataset.csv"
+  processed_file: "data/processed/ecoli_protein_processed.csv"
+  test_size: 0.2
+  random_state: 42
+
+# Preprocessing
+preprocessing:
+  scale_features: true
+  encode_labels: true
+
+# Model Architecture
+model:
+  input_size: 7 # Number of features in the dataset
+  hidden_sizes: [64, 32] # You can add more layers by adding more numbers
+  output_size: 8 # Number of classes in the dataset
+  activation: "relu" # Options: 'relu', 'tanh', 'sigmoid'
+
+# Training Configuration
+training:
+  batch_size: 32
+  num_epochs: 100
+  learning_rate: 0.001
+  optimizer: "adam" # Options: 'adam', 'sgd'
+  loss_function: "cross_entropy"
+  early_stopping_patience: 10
+
+# Evaluation
+evaluation:
+  metrics: ["accuracy", "f1_score", "precision", "recall"]
+
+# Visualization
+visualization:
+  plot_loss: true
+  plot_accuracy: true
+  plot_confusion_matrix: true
+
+# Logging
+logging:
+  log_file: "logs/training.log"
+  log_level: "INFO"
+
+# Save and Load
+save_load:
+  model_save_path: "models/ecoli_model.pth"
+  results_save_path: "results/model_results.json"
